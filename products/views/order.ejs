@@ -1,0 +1,97 @@
+<nav style="background-color:#eaeaea ;" class="navbar navbar-expand-lg fixed-top">
+    <div class="container-fluid">
+    <a style="color: #f63117;" class="navbar-brand" href="/"><i class="bi bi-basket h1"></i> Online Shopping</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse container" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+        <li  class="nav-item">
+            <a style="color: #f63117;" class="nav-link active" href="/customerDashboard">Home</a>
+        </li>
+        <li class="nav-item">
+            <a style="color: #f63117;" class="nav-link" href="/cart">Cart</a>
+        </li>
+        </ul>
+    </div>
+    </div>
+</nav>
+<div style="margin-top: 70px;" class="row p-5">
+    <div class="col-md-6 m-auto">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="text-center text-warning">Order</h4>
+                <p class="text-center">Please Fill in the form to Complete Your Order</p>
+                <form action="/order" method="POST">
+                    <div class="mb-3">
+                        <p>Please Enter the mobile which we can easily reach you with</p>
+                        <label for="mobile">Telephone Number</label>
+                        <input type="text" class="form-control" placeholder="Mobile...." name="mobile">
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="mb-3">
+                                <label for="county">County</label>
+                                <input type="text" class="form-control" placeholder="County..." name="county">
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="mb-3">
+                                <label for="estate">Estate</label>
+                                <input type="text" class="form-control" name="estate" placeholder="Estate...">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="address">Address</label>
+                        <textarea name="address" id="" cols="20" rows="3" class="form-control" placeholder="Address..."></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <p>Please Choose Your Mode of payment</p>
+                        <input type="radio" value="mpesa" name="payment" onclick="mpesa()">M-pesa
+                        <input type="radio" value="mastercard"name="payment" onclick="mastercard()">MasterCard
+                    </div>
+                    <div id="mpesa" style="background-color: #eaeaea;" class="card">
+                        <div class="card-body">
+                                <div class="mb-3">
+                                    <label for="mobile">Telephone Number</label>
+                                    <input type="text" class="form-control" name="mpesaNumber" placeholder="Mpesa Payment Number">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="amount">Amount</label> <br>
+                                    <input style="cursor:not-allowed ;" class="btn btn-light text-dark" name="amount" value="<%= cart.totalPrice %>">
+                                </div>
+                                <div class="mb-3">
+                                    <button type="submit" class="btn btn-primary">Order</button>
+                                </div>
+                                </div>
+                            </div>
+                            <div id="mastercard" style="background-color: #eaeaea;" class="card">
+                                <div class="card-body">
+                                <div class="mb-3">
+                                    <label for="mastercardName">Name</label>
+                                    <input type="text" name="mastercardName" class="form-control"  placeholder="Credit card's Name">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="number">Card Number</label>
+                                    <input type="number" name="mastercardNumber" class="form-control"  placeholder="2222222-2222222">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="amount">Amount</label> <br>
+                                    <input style="cursor:not-allowed ;" type="number" class="btn btn-light text-dark" name="amount" value="<%= cart.totalPrice %>">
+                                </div>
+                                <div class="mb-3">
+                                    <button type="submit" class="btn btn-success">Order</button>
+                                </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<footer class="text-center mt-5 py-3">
+    <h4>Copyright &copy; 2022</h4>
+    <p>Online Shopping </p> 
+    <h6><i class="bi bi-building text-primary h3"></i>Nairobi,Kenya</h6>
+</footer>

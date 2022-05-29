@@ -1,0 +1,61 @@
+<nav style="background-color:#eaeaea ;" class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+    <a class="navbar-brand" href="/"><i class="bi bi-basket h1"></i> Online Shopping</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse container" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+        <!-- <li class="nav-item">
+            <a class="nav-link active" href="/">Home</a>
+        </li> -->
+        </ul>
+    </div>
+    </div>
+</nav>
+<div class="card">
+    <div class="card-header">
+        <div class="row">
+            <div class="col-8">
+                <h4>Search Products</h4>
+            </div>
+            <div class="col-4">
+                <a href="/productlist" class="btn btn-dark"><i class="bi bi-arrow-left"></i>Back</a>
+            </div>
+        </div>
+    </div>
+ 
+    <div class="card-body">
+        <table class="table table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th>Image</th>
+                    <th>Product Name</th>
+                    <th>Type</th>
+                    <th>Price</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if(products.length > 0) { %>
+                    <% for(let product of products) { %>
+                        <tr>
+                            <td><img src="../uploads/<%= product.productimage %>" alt="" style="width: 100px; height: 100px; border-radius: 10px;"></td>
+                            <td><%= product.productname %></td>
+                            <td><%= product.type %></td>
+                            <td><%= product.price %></td>
+                            <td>
+                                <a href="/updateProduct/<%= product._id %>" class="btn btn-warning"><i class="bi bi-pen"></i></a>
+                                <a href="/deleteProduct/<%= product._id %>" class="btn btn-danger"><i class="bi bi-trash"></i></a>
+                            </td>
+                        </tr>
+                    <% } %>
+                <% } else{%>
+                    <tr>
+                        <td colspan="4" class="text-center"><h4>No data Found</h4></td>
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
+    </div>
+</div>
